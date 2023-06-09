@@ -9,10 +9,10 @@ function getRandomInt(max) {
 db.table('operations', {
   columns: ['urn', 'proc_code', 'date', 'team', 'consultant', 'urgency', 'LOS', 'Mortality'],
   rows: function* () {
-    for (let i=1; i < 1500; i += 1) {
+    for (let i=1; i < (224*20); i += 1) {
         let urn = i;
         let proc_code = Math.floor(Math.random() * 6) + 1;
-        let dateobj = new Date(Date.now() - Math.floor(Math.random() * (1000*60*60*24*112)))
+        let dateobj = new Date((Date.now() + (1000*60*60*24*112)) - Math.floor(Math.random() * (1000*60*60*24*224)))
         let date = dateobj.valueOf();
         let team = Math.floor(Math.random() * 4) + 1;
         let consultant = Math.floor(Math.random() * 4) + 1;
