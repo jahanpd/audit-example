@@ -1,4 +1,9 @@
 import * as db from '$lib/server/db';
+import type { Config } from '@sveltejs/adapter-vercel';
+
+export const config: Config = {
+    runtime: 'nodejs18.x'
+};
 
 export const load = (async ( params ) => {
     let search = params.url.searchParams;
