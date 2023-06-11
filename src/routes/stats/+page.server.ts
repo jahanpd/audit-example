@@ -28,10 +28,23 @@ ${consultant_exclude.length > 0 ? "AND consultant not in (" + consultant_exclude
 ${procs_exclude.length > 0 ? "AND proc_code not in (" + procs_exclude.map((c) => c.value).join(",") + ")" : ""}
 ${urgency.length > 0 ? "AND urgency in (" + urgency.map((c) => c.value).join(",") + ")" : ""}
 `
+    let query2 = `
+SELECT * FROM operations
+WHERE
+(date > ${new Date(start).valueOf() - (1000*60*60*24*365)})
+AND (date < ${new Date(start).valueOf()})
+${teams.length > 0 ? "AND team in (" + teams.map((c) => c.value).join(",") + ")" : ""}
+${consultant_include.length > 0 ? "AND consultant in (" + consultant_include.map((c) => c.value).join(",") + ")" : ""}
+${consultant_exclude.length > 0 ? "AND consultant not in (" + consultant_exclude.map((c) => c.value).join(",") + ")" : ""}
+${procs_exclude.length > 0 ? "AND proc_code not in (" + procs_exclude.map((c) => c.value).join(",") + ")" : ""}
+${urgency.length > 0 ? "AND urgency in (" + urgency.map((c) => c.value).join(",") + ")" : ""}
+`
     const ops = db.db.prepare(query).all();
+    const hist = db.db.prepare(query2).all();
     // console.log(ops)
 
     return {
-        operations: ops
+        operations: ops,
+        historical: hist
     };
 });

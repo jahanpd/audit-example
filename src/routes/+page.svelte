@@ -23,15 +23,18 @@
 
 </script>
 
-<div class="p-4 m-4 border border-grey">
-    <tag>
+<div class="p-4 m-4 border border-grey text-sm pl-10 pr-10 bg-slate-50 italic">
+    <tag class="">
+        This is an example UI for an audit tool for operations that hopefully clarifies some of the requirements we in the dept of surg have.
+        We start with a tab for defining some basic filters.
         This tab is not particularly novel, and basically recreates the filter for the 6 month surgical audit on data warehouse.
         The main innovation is adding in a category for procedure clusters rather than purely a procedure.
-        These can be defined in the cluster tab.
+        These can be defined in the cluster tab. <br /><br />
         Ideally these queries can be saved and reused by multiple users to save time.
         <br /><br />
-        Unlock the stats and histo tabs by filling in a date range. All other inputs are optional.
-        Data is only procedurally generated for the preceding two weeks from today.
+        To progress onto the stats and histo tabs a date range to audit must be entered. All other inputs are optional. Obviously for specific surg teams/specialties, being able to limit results to a team or set of consultants is very important.
+        <br /><br />
+        For best results to see what I'm going for just 'audit' the preceding week from today and select some procedure code clusters.
     </tag>
 </div>
 <div class="p-4 m-4 border border-grey">
